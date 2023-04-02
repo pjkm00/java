@@ -52,6 +52,36 @@ public class ArithmeticOperator {
 		//전위형 덧셈, 뺄셈 연산은 해당 줄에서 바로 연산되어 값이 변한다.
 		//후위형 덧셈, 뺄셈 연산은 해당 줄의 다음줄부터 연산되어 값이 변한다.
 		
+		int i = 0;
+		System.out.println("++i = " + ++i); //출력을 하기 전 1이 증가되어 출력됨.
+		i = 0;
+		System.out.println("i++ = " + i++); //출력을 하고 나서 1이 증가.
+		System.out.println(i);
+		
+		double round = 50.6;
+		System.out.println((int)(round + 0.5));
+		System.out.println(Math.round(round)); //round 소수점 첫째자리에서 반올림해주는 메서드
+		//만약에 소수점 두번째 자리에서 반올림을 하려면 이 메서드를 사용할 수 없다.
+		double round2 = 50.56;
+		System.out.println(Math.round(round2));
+		System.out.println((int)(round2 * 10 + 0.5) / 10.0);
+		
+		//3개의 int형 변수를 선언 및 초기화 후 합계와 평균을 구해주세요.
+		//평균은 소수점 둘째자리에서 반올림해주세요.
+		
+		int t1 = 15;
+		int t2 = 38;
+		int t3 = 87;
+		
+		System.out.println(t1 + t2 + t3);
+		System.out.println((int)(((double)(t1 + t2 + t3)/3)*10)/10.0);
+		System.out.println(Math.round(((double)(t1 + t2 + t3)/3)*10)/10.0);
+		
+		int sum = t1 + t2 + t3;
+		double avg = (int)(sum/3.0 * 10 + 0.5)/10.0;
+		System.out.println("합계 : " + sum);
+		System.out.println("평균 : " + avg);
+		
 		
 	}
 
