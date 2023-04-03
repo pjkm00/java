@@ -1,5 +1,7 @@
 package c_statement;
 
+import java.util.Scanner;
+
 public class RepetitiveStatement {
 
 	public static void main(String[] args) {
@@ -114,21 +116,187 @@ public class RepetitiveStatement {
 //			System.out.println("");
 //		}
 		
-		for (int i = 0; i < 5; i++) {
-			for(int j = 4; j > i; j--) {
-				System.out.print(" ");
-				}
-			for(int k = 0; k <= i; k++ ) {
-					System.out.print("*");
-				}
-			for(int k = 0; k <= i; k++ ) {
-				if(k == 0) {
+//		for (int i = 1; i <= 5; i++) {
+//			for(int j = 5; j > i; j--) {
+//				System.out.print(" ");
+//				}
+//			for(int k = 1; k <= i; k++ ) {
+//					System.out.print("*");
+//				}
+//			System.out.println("");
+//		}
+		
+		/*
+		 * *****
+		 * ****
+		 * ***
+		 * **
+		 * *
+		 */
+		
+//		for(int i = 1; i <= 5; i++) {
+//			for (int j = 5; j >= i; j--){
+//				System.out.print("*");
+//			}
+//			System.out.println("");
+//		}
+		
+		/*
+		 * *****
+		 *  ****
+		 *   ***
+		 *    **
+		 *     *
+		 */
+		
+//		for(int i = 1; i <= 5; i++) {
+//			for(int j = 1; j < i; j++) {
+//				System.out.print(" ");
+//			}
+//			for (int j = 5; j >= i; j--){
+//				System.out.print("*");
+//			}
+//			System.out.println("");
+//		}
+//		
+		/*
+		 *     *
+		 *    ***
+		 *   *****
+		 *  *******
+		 * *********
+		 */
+		
+	
+//		for (int i = 0; i < 5; i++) {
+//			for(int j = 4; j > i; j--) {
+//				System.out.print(" ");
+//				}
+//			for(int k = 0; k <= i*2; k++ ) {
+//					System.out.print("*");
+//				}
+//			System.out.println("");
+//		}
+//	
+//		for (int i = 0; i < 5; i++) {
+//			for(int j = 4; j > i; j--) {
+//				System.out.print(" ");
+//				}
+//			for(int k = 0; k <= i; k++ ) {
+//					System.out.print("*");
+//				}
+//			for(int k = 0; k <= i; k++ ) {
+//				if(k == 0) {
+//					continue;
+//				}
+//				System.out.print("*");
+//			}
+//			System.out.println("");
+//		}
+	
+		
+		/* 
+		 * *********
+		 *  *******
+		 *   *****
+		 *    ***
+		 *     *
+		 */
+		
+//		for(int i = 0; i < 5; i++) {
+//			for(int j = 0; j < i; j++){
+//				System.out.print(" ");
+//			}
+//			for(int j = 9; j > i*2; j--) {
+//				System.out.print("*");
+//			}
+//			
+//			System.out.println("");
+//		}
+		
+	     
+//		for (int i = 0; i < 5; i++) {
+//			for(int j = 4; j > i; j--) {
+//				System.out.print(" ");
+//				}
+//			for(int k = 0; k <= i*2; k++ ) {
+//					System.out.print("*");
+//				}
+//			System.out.println("");
+//		}
+//		for(int i = 0; i < 5; i++) {
+//			for(int j = 0; j <= i; j++){
+//				System.out.print(" ");
+//			}
+//			for(int j = 7; j > i*2; j--) {
+//				System.out.print("*");
+//			}
+//			
+//			System.out.println("");
+//		}
+		
+		/*
+		 * <<while>>
+		 * - while(조건식){}
+		 * - 조건식의 결과가 true인 동안 계속해서 반복
+		 * - 반복횟수를 알 수 없을 때 사용
+		 */
+	
+//		int a = 0;
+//		while(a < 10) {
+//			System.out.print(a + " ");
+//			a++;
+//		}
+//		System.out.println("");
+//		for(int i = 0; i < 10; i++) {
+//			System.out.print(i + " ");
+//		}
+//		System.out.println("");
+//		int b = 0;
+//		while(true) {
+//			if(b > 10) {
+//				break;
+//			}
+//			System.out.print(b + " ");
+//			b++;
+//		}
+		
+		//사용자가 입력한 단의 구구단을 출력하는 프로그램을 만들어주세요.
+		//특정 값을 입력했을 때 종료가 되게 만들어주세요.
+		Scanner s = new Scanner(System.in);
+		System.out.println("구구단 출력 프로그램");
+		while(true) {
+			System.out.println("몇단을 출력할까요? (0 : 종료)");
+			String input1 = s.nextLine();
+			boolean result1 = input1.matches("[0-9]+");
+			if(result1) {
+				int num = Integer.parseInt(input1);
+				
+				if(num == 0) {
+					System.out.println("종료되었습니다.");
+					break;
+				}else if(num > 9){
+					System.out.println("1~9까지의 숫자를 입력하세요");
 					continue;
 				}
-				System.out.print("*");
+				
+				int a = 1;
+				while(a <= 9) {
+					System.out.println(num + " X " + a + " = " + num*a);
+					a++;
+				}
+			}else {
+				System.out.println("숫자를 입력하세요.");
 			}
-			System.out.println("");
+			
 		}
+		
+		
+		
+	
+		
+		
+		
 		
 		
 		
