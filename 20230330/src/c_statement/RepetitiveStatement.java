@@ -263,38 +263,136 @@ public class RepetitiveStatement {
 		
 		//사용자가 입력한 단의 구구단을 출력하는 프로그램을 만들어주세요.
 		//특정 값을 입력했을 때 종료가 되게 만들어주세요.
-		Scanner s = new Scanner(System.in);
-		System.out.println("구구단 출력 프로그램");
-		while(true) {
-			System.out.println("몇단을 출력할까요? (0 : 종료)");
-			String input1 = s.nextLine();
-			boolean result1 = input1.matches("[0-9]+");
-			if(result1) {
-				int num = Integer.parseInt(input1);
-				
-				if(num == 0) {
-					System.out.println("종료되었습니다.");
-					break;
-				}else if(num > 9){
-					System.out.println("1~9까지의 숫자를 입력하세요");
-					continue;
-				}
-				
-				int a = 1;
-				while(a <= 9) {
-					System.out.println(num + " X " + a + " = " + num*a);
-					a++;
-				}
-			}else {
-				System.out.println("숫자를 입력하세요.");
-			}
-			
-		}
+//		Scanner s = new Scanner(System.in);
+//		System.out.println("구구단 출력 프로그램");
+//		while(true) {
+//			System.out.println("몇단을 출력할까요? (0 : 종료)");
+//			String input1 = s.nextLine();
+//			boolean result1 = input1.matches("[0-9]+");
+//			if(result1) {
+//				int num = Integer.parseInt(input1);
+//				
+//				if(num == 0) {
+//					System.out.println("종료되었습니다.");
+//					break;
+//				}else if(num > 9){
+//					System.out.println("1~9까지의 숫자를 입력하세요");
+//					continue;
+//				}
+//				
+//				int a = 1;
+//				while(a <= 9) {
+//					System.out.println(num + " X " + a + " = " + num*a);
+//					a++;
+//				}
+//			}else {
+//				System.out.println("숫자를 입력하세요.");
+//			}
+//		}
 		
 		
+			//while문과 do-while문 비교
+//		int a = 0;
+//		while(a < 0) {
+//			System.out.println(a + " ");
+//			a++;
+//		}
+//		System.out.println();
 		
+		
+//		a = 0;
+//		do {System.out.print(a + " ");
+//			a++;
+//		}while(a < 0);
+//		System.out.println();
+//			
+//		a = 0;
+//		while(a < 10) {
+//			System.out.print(a + " ");
+//			a++;
+//		}
+//		System.out.println();
+//		
+//		
+//		a = 0;
+//		do {
+//			System.out.print(a + " ");
+//			a++;
+//		}while(a < 10);
+//		System.out.println();
 	
+//		int a = 0;
+//		do {
+//			System.out.print(a + " ");
+//			++a;
+//		}while(a < 10);
 		
+		//숫자 맞추기 게임을 만들어 봅시다.
+		Scanner s = new Scanner(System.in);
+		System.out.println("숫자맞추기게임");
+		int ranNum = (int)(Math.random() * 100 + 1);
+		int inNum = 0;
+//		System.out.println("1부터 100사이의 숫자를 입력해주세요.(기회는 10번)");
+//		
+//		
+//		numGame : do {
+//			for(int i = 9; i >= 0; i--) {
+//				String input = s.nextLine();
+//				boolean res = input.matches("[0-9]+");
+//				if(i == 0) {
+//					System.out.println("정답은 " + ranNum + " 당신이 졌습니다.");
+//					break numGame;
+//				}
+//				if(res) {
+//					inNum = Integer.parseInt(input);
+//					if(inNum > 100 || inNum < 1) {
+//						System.out.println("1부터 100 사이의 숫자를 입력해주세요");
+//					}else if(inNum < ranNum) {
+//						System.out.println("Up");
+//					}else if(inNum > ranNum){
+//						System.out.println("Down");
+//					}else {
+//						System.out.println("정답입니다.");
+//						break;
+//					}
+//				}else {
+//					System.out.println("숫자를 입력해주세요.");
+//				}
+//				System.out.println(i + "번 남았습니다.");
+//			}
+//		}while(inNum != ranNum);
+		
+		
+		
+		
+		System.out.println("정답을 맞출 횟수를 정하세요.");
+		int userRepet = Integer.parseInt(s.nextLine());
+		System.out.println("1부터 100사이의 숫자를 입력해주세요.");
+		int repet = 0;
+		do {
+			if(userRepet == repet) {
+				System.out.println(userRepet + "회의 기회가 모두 끝났습니다. 게임을 종료합니다.");
+				break;
+			}
+				String input = s.nextLine();
+				boolean res = input.matches("[0-9]+");
+				if(res) {
+					inNum = Integer.parseInt(input);
+					if(inNum > 100 || inNum < 1) {
+						System.out.println("1부터 100 사이의 숫자를 입력해주세요");
+					}else if(inNum < ranNum) {
+						System.out.println("Up");
+					}else if(inNum > ranNum){
+						System.out.println("Down");
+					}else {
+						System.out.println("정답입니다.");
+						break;
+					}
+				}else {
+					System.out.println("숫자를 입력해주세요.");
+				}
+			repet++;
+		}while(inNum != ranNum);
 		
 		
 		
