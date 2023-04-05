@@ -24,8 +24,16 @@ public class Etc_string {
 		System.out.println(str1.lastIndexOf("a"));
 		System.out.println(str1.indexOf("a", 8)); //뒤에 파라미터가 시작인덱스임 8번 인덱스부터 서치해라는 뜻
 		System.out.println(str1.lastIndexOf("a", 8)); //8을 맨 뒤로 생각하고 앞으로 찾아라
-		System.out.println(str2.indexOf("안녕")); 
+		System.out.println(str1.indexOf("하십쇼")); 
 		System.out.println(str1.lastIndexOf("Bye")); 
+		System.out.println("=========================================");
+		
+		//문자열 변환 및 연결
+		System.out.println("================문자열변환===============");
+		String str3 = String.valueOf(2.3);
+		String str4 = String.valueOf(false);
+		System.out.println(str3);
+		System.out.println(str4);
 		System.out.println("=========================================");
 		
 		
