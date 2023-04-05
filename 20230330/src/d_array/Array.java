@@ -132,20 +132,57 @@ public class Array {
 //		System.out.println(a);
 		
 		//위 문제의 최소값, 최대값, 반복횟수를 입력받아 각 숫자가 생성된 횟수를 출력해주세요.
-		Scanner s = new Scanner(System.in);
-		System.out.println("최소값을 입력해주세요.");
-		int min = Integer.parseInt(s.nextLine());
-		System.out.println("최대값을 입력해주세요.");
-		int max = Integer.parseInt(s.nextLine());
-		System.out.println("반복횟수를 입력해주세요.");
-		int repet = Integer.parseInt(s.nextLine());
+//		Scanner s = new Scanner(System.in);
+//		System.out.println("최소값을 입력해주세요.");
+//		int min = Integer.parseInt(s.nextLine());
+//		System.out.println("최대값을 입력해주세요.");
+//		int max = Integer.parseInt(s.nextLine());
+//		System.out.println("반복횟수를 입력해주세요.");
+//		int repet = Integer.parseInt(s.nextLine());
+//		
+//		int[] Num2 = new int[max - min + 1];
+//		for(int i = 0; i < repet; i++) {
+//			int ran = (int)(Math.random()*(max - min + 1) + min);
+//			Num2[ran - min] = Num2[ran - min] + 1;
+//		}
+//		System.out.println(Arrays.toString(Num2));
+//		
+		/*
+		 * 거스름돈에 동전의 단위마다 몇개의 동전이 필요한지 출력해주세요.
+		 * 거스름돈 : 2860원
+		 * 500원 : 5개
+		 * 100원 : 3개
+		 * 50원 : 1개
+		 * 10원 : 1개
+		 */
+//		int money = ((int)(Math.random() * 500))*10;
+//		int fivehun = (int)(money / 500);
+//		int hun = (int)(money % 500) / 100;
+//		int fif = (int)(money % 500 % 100) / 50;
+//		int ten = (int)(money % 500 % 100 % 50) / 10;
+//		
+//		System.out.println("거스름돈 : " + money + "원");
+//		System.out.println("500원 : " + fivehun+ "개");
+//		System.out.println("100원 : " + hun+ "개");
+//		System.out.println("50원 : " + fif+ "개");
+//		System.out.println("10원 : " + ten+ "개");
 		
-		int[] Num2 = new int[max - min + 1];
-		for(int i = 0; i < repet; i++) {
-			int ran = (int)(Math.random()*(max - min + 1) + min);
-			Num2[ran - min] = Num2[ran - min] + 1;
+		
+		int money = ((int)(Math.random() * 500))*10;
+		int[] coin = {500, 100, 50, 10};
+		int[] res = new int[4];
+		int remain = money;
+		
+		for(int i = 0; i < coin.length; i++) {
+			res[i] = (int)remain/coin[i]; //필요한 동전의 갯수가 순서대로 res배열에 추가됨
+			remain = remain - res[i] * coin[i];
+			if(remain == 0) {
+				break;
+			}
+			
 		}
-		System.out.println(Arrays.toString(Num2));
+		System.out.println("거스름돈 : " + money);
+		System.out.println("500원 : " + res[0] + "개, " + "100원 : " + res[1] + "개, " + "50원 : " + res[2] + "개, " + "10원 : " + res[3] + "개");
 		
 		
 		
