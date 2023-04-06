@@ -27,6 +27,15 @@ public class Running {
 	
 	boolean power() {
 		if(wtf.equals("on")) {
+			System.out.println("몸무게를 입력해주세요>");
+			weight = Double.parseDouble(sc.nextLine());
+			System.out.println("초기 속도를 입력해주세요>");
+			speed = Double.parseDouble(sc.nextLine());
+			System.out.println("운동시간을 입력해주세요.(분단위)>");
+			time = Integer.parseInt(sc.nextLine());
+			System.out.println("3....2....1...Start!!!");
+			System.out.println("현재속도 : " + speed + ", 현재각도 : " + incline);
+		
 			this.power = true;
 		}else {
 			this.power = false;
