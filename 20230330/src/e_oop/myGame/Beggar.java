@@ -40,8 +40,7 @@ public class Beggar {
 			if(input > 0 && input <= this.level) {
 				money += sk.skillUtil(input - 1);
 				System.out.println("\n 자산 : " + money + "원");
-				
-//				this.levelUpMoney = money;
+	
 				System.out.println("레벨업 자산 : " + levelUpMoney + "원");
 				
 				this.level = levelUp();
