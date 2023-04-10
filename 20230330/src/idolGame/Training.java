@@ -5,11 +5,8 @@ import java.util.Scanner;
 public class Training {
 	Scanner sc = new Scanner(System.in);
 	int input;
-	int vocal;
-	int dance;
-	int rap;
-	String traineeName;
 	
+
 	
 	void training(int a, TraineeAll[] TA) {
 		System.out.println("어떤 연습을 시키시겠습니까?");

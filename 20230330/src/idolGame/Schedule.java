@@ -3,8 +3,7 @@ package idolGame;
 import java.util.Scanner;
 
 public class Schedule {
-	int fan;
-	int hp;
+	
 	Scanner sc = new Scanner(System.in);
 	
 	void selSc(Debut d, Member[] m){

@@ -35,23 +35,29 @@ public class TraineeAll {
 			System.out.println("어떤 방식으로 연습생을 뽑으시겠습니까?");
 			System.out.println("1.길거리 캐스팅(0원)  2.오디션(10000원)  0. 뒤로가기");
 			
-			int input = Integer.parseInt(sc.nextLine());
-			switch(input) {
-			case 1:
-				this.geRandomTn(TA);
-				break;
-			case 2:
-				if(Company.commoney < 10000) {
-					System.out.println("돈이 부족하여 연습생을 뽑을 수 없습니다.");
+			String input = sc.nextLine();
+			boolean B1 = input.matches("[0-9]+");
+			if(B1) {
+				int i1 = Integer.parseInt(input);
+				switch(i1) {
+				case 1:
+					this.geRandomTn(TA);
 					break;
+				case 2:
+					if(Company.commoney < 10000) {
+						System.out.println("돈이 부족하여 연습생을 뽑을 수 없습니다.");
+						break;
+					}
+					this.sPRandomTn(TA);
+					break;
+				case 0:
+					break random;
+				default:
+				    System.out.println("지원하지 않는 키입니다.");
+				    break;
 				}
-				this.sPRandomTn(TA);
-				break;
-			case 0:
-				break random;
-			default:
-			    System.out.println("지원하지 않는 키입니다.");
-			    break;
+			}else {
+				System.out.println("숫자를 입력하세요.");
 			}
 		}
 	}
@@ -107,33 +113,46 @@ public class TraineeAll {
 		System.out.println("등급 : " + grade);
 		System.out.println("=================================");
 		System.out.println("영입 하시겠습니까? 예(1) 아니오(2)");
-		int input = Integer.parseInt(sc.nextLine());
-		selTr : switch(input) {
-		case 1:
-			System.out.println("몇 번째 연습생으로 영입하시겠습니까?(연습생은 5명까지 영입가능합니다.)");
-			int a = Integer.parseInt(sc.nextLine());
-			if(a == 0 || a > 5) {
+		
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int i1 = Integer.parseInt(input);
+			selTr : switch(i1) {
+			case 1:
+				System.out.println("몇 번째 연습생으로 영입하시겠습니까?(연습생은 5명까지 영입가능합니다.)");
+				int a = Integer.parseInt(sc.nextLine());
+				if(a == 0 || a > 5) {
+					System.out.println("지원되지 않는 키입니다.");
+					break;
+				}
+				if(TA[a-1].grade != null) {
+					System.out.println(a + "번째 연습생이 있습니다. 덮어쓰시겠습니까? 예(1) 아니오(2)");
+					String input2 = sc.nextLine();
+					boolean B2 = input2.matches("[0-9]+");
+					if(B2) {
+						int i2 = Integer.parseInt(input2);
+						switch(i2) {
+						case 1:
+							break;
+						case 2:
+							break selTr;
+						}
+					}else {
+						System.out.println("숫자를 입력하세요.");
+					}
+				}
+				this.tnNum(a - 1, TA, vocal, dance, rap, compose, grade);
+				System.out.println("영입되었습니다. 연습생 관리에서 확인하세요.");
+				break;
+			case 2:
+				break;
+			default:
 				System.out.println("지원되지 않는 키입니다.");
 				break;
 			}
-			if(TA[a-1].grade != null) {
-				System.out.println(a + "번째 연습생이 있습니다. 덮어쓰시겠습니까? 예(1) 아니오(2)");
-				input = Integer.parseInt(sc.nextLine());
-				switch(input) {
-				case 1:
-					break;
-				case 2:
-					break selTr;
-				}
-			}
-			this.tnNum(a - 1, TA, vocal, dance, rap, compose, grade);
-			System.out.println("영입되었습니다. 연습생 관리에서 확인하세요.");
-			break;
-		case 2:
-			break;
-		default:
-			System.out.println("지원되지 않는 키입니다.");
-			break;
+		}else {
+			System.out.println("숫자를 입력하세요.");
 		}
 	}
 	
@@ -149,9 +168,18 @@ public class TraineeAll {
 	void traineeList(TraineeAll[] TA) {
 		System.out.println("연습생은 최대 5명까지 영입할 수 있습니다.");
 		System.out.println("몇 번 연습생을 관리하시겠습니까?");
-		int input = Integer.parseInt(sc.nextLine());
-		traineeInfo(input - 1, TA);
-		
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int i1 = Integer.parseInt(input);
+			if(TA[i1 - 1].grade == null) {
+				System.out.println("존재하지 않습니다.");
+			}else {
+				traineeInfo(i1 - 1, TA);
+			}
+		}else {
+			System.out.println("숫자를 입력해주세요.");
+		}
 	}
 	
 	void traineeInfo(int a, TraineeAll[] TA) {

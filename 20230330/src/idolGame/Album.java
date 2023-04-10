@@ -3,6 +3,7 @@ package idolGame;
 import java.util.Scanner;
 
 public class Album {
+	
 	String albumName;
 	String songgrade;
 	String dancegrade;

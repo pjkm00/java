@@ -4,20 +4,20 @@ import java.util.Scanner;
 
 public class Debut {
 	
-	int gvocal = 0;
-	int gdance= 0;
-	int grap = 0;
+	int gvocal;
+	int gdance;
+	int grap;
 	int gcompose;
-	int gvocalAvg = 0;
-	int gdanceAvg= 0;
-	int grapAvg = 0;
+	int gvocalAvg;
+	int gdanceAvg;
+	int grapAvg;
 	int gcomposeAvg;
 	
 	static int maxhp = 100;
-	
-	static int gfan = 0;
+	static int gfan;
 	static String ggrade;
-	String groupName = null;
+	
+	String groupName;
 	String member;
 	
 	Scanner sc = new Scanner(System.in);

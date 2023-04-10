@@ -5,13 +5,6 @@ import java.util.Scanner;
 public class DTraining {
 	Scanner sc = new Scanner(System.in);
 	int input;
-	int vocal;
-	int dance;
-	int rap;
-	String traineeName;
-	
-	
-	
 	
 	
 	void training(int a, Member[] m) {
