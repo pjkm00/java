@@ -1,4 +1,4 @@
-package e_oop.idolGame;
+package idolGame;
 
 import java.util.Arrays;
 import java.util.Scanner;

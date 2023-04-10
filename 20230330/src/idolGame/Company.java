@@ -1,4 +1,4 @@
-package e_oop.idolGame;
+package idolGame;
 
 public class Company {
 	
