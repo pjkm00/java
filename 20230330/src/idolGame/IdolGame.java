@@ -12,6 +12,9 @@ public class IdolGame {
 		
 		TraineeAll TA = new TraineeAll();
 		Scanner sc = new Scanner(System.in);
+		System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┓");
+		System.out.println("┃      아이돌키우기            ┃");
+		System.out.println("┗━━━━━━━━━━━━━━━━━━━━━┛");
 		System.out.println("회사명을 입력하세요.");
 		String companyName = sc.nextLine();
 		Company cp = new Company(companyName);
@@ -63,6 +66,7 @@ public class IdolGame {
 							break;
 						case 3:
 							Schedule s = new Schedule();
+					
 							s.selSc(d, mA);
 							for(int i = 0; i < mA.length; i++) {
 								if(mA[i].hp <= 0) {

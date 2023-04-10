@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Album {
 	String albumName;
-	String songName;
 	String songgrade;
 	String dancegrade;
 	
@@ -50,15 +49,15 @@ public class Album {
 	
 
 	void selfsong(Debut d) {
-		if(d.gcompose > 90) {
+		if(d.gcomposeAvg > 90) {
 			songgrade = "S";
-		}else if(d.gcompose > 80) {
+		}else if(d.gcomposeAvg > 80) {
 			songgrade = "A";
-		}else if(d.gcompose > 70) {
+		}else if(d.gcomposeAvg > 70) {
 			songgrade = "B";
-		}else if(d.gcompose > 60) {
+		}else if(d.gcomposeAvg > 60) {
 			songgrade = "C";
-		}else if(d.gcompose > 50) {
+		}else if(d.gcomposeAvg > 50) {
 			songgrade = "D";
 		}else {
 			songgrade = "F";
@@ -77,15 +76,15 @@ public class Album {
 	}
 	
 	void selfdance(Debut d) {
-		if(d.gdance > 90) {
+		if(d.gdanceAvg > 90) {
 			dancegrade = "S";
-		}else if(d.gdance > 80) {
+		}else if(d.gdanceAvg > 80) {
 			dancegrade = "A";
-		}else if(d.gdance > 70) {
+		}else if(d.gdanceAvg > 70) {
 			dancegrade = "B";
-		}else if(d.gdance > 60) {
+		}else if(d.gdanceAvg > 60) {
 			dancegrade = "C";
-		}else if(d.gdance > 50) {
+		}else if(d.gdanceAvg > 50) {
 			dancegrade = "D";
 		}else {
 			dancegrade = "F";
