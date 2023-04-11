@@ -2,13 +2,14 @@ package idolGame;
 
 public class Company {
 	
-	String comName;
+	static String comName;
 	int level;
 	static long commoney;
+	static int day = 1;
 	
 	
-	Company(String comName) {
-		this.comName = comName;
+	Company(String cName) {
+		comName = cName;
 		level = 1;
 		commoney = 100000;
 	}

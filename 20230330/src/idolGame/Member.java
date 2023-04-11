@@ -31,13 +31,18 @@ public class Member {
 	
 	void memberManage(Member[] m) {
 		System.out.println("몇 번째 멤버를 보시겠습니까?");
-		int input = Integer.parseInt(sc.nextLine());
-		if(input > m.length) {
-			System.out.println("없는 멤버입니다.");
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int	i1 = Integer.parseInt(input);
+			if(i1 > m.length) {
+				System.out.println("없는 멤버입니다.");
+			}else {
+				this.memberInfo(m, i1 - 1);
+			}
 		}else {
-			this.memberInfo(m, input - 1);
+			System.out.println("숫자를 입력하세요.");
 		}
-		
 	}
 	
 	void memberInfo(Member[] m, int i) {
@@ -49,25 +54,31 @@ public class Member {
 		System.out.println("HP : " + m[i].hp);
 		System.out.println("==========================================");
 		System.out.println("1.연습하기  2.휴식하기  0.뒤로가기");
-		int input = Integer.parseInt(sc.nextLine());
-		switch(input) {
-		case 1:
-			DTraining dT = new DTraining();
-			dT.training(i, m);
-			if(m[i].hp <= 0) {
-				System.out.println("과로로 게임오버 되었습니다.");
-				System.exit(0);
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int	i1 = Integer.parseInt(input);
+			switch(i1) {
+			case 1:
+				DTraining dT = new DTraining();
+				dT.training(i, m);
+				if(m[i].hp <= 0) {
+					System.out.println("과로로 게임오버 되었습니다.");
+					System.exit(0);
+				}
+				break;
+			case 2:
+				Rest r = new Rest();
+				r.selRest(m, i);
+				break;
+			case 0:
+				break;
+			default:
+				System.out.println("지원되지 않는 키입니다.");
+				break;
 			}
-			break;
-		case 2:
-			Rest r = new Rest();
-			r.selRest(m, i);
-			break;
-		case 0:
-			break;
-		default:
-			System.out.println("지원되지 않는 키입니다.");
-			break;
+		}else {
+			System.out.println("숫자를 입력하세요.");
 		}
 	}
 	

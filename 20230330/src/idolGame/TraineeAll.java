@@ -30,11 +30,10 @@ public class TraineeAll {
 	
 	
 	void RandomTn(TraineeAll[] TA) {
-		
 		random : while(true) {
 			System.out.println("어떤 방식으로 연습생을 뽑으시겠습니까?");
-			System.out.println("1.길거리 캐스팅(0원)  2.오디션(10000원)  0. 뒤로가기");
-			
+			System.out.println("1.길거리 캐스팅(0원)  2.오디션(10000원) 3.타기획사 연습생 스카우트(50000원) 0. 뒤로가기");
+				
 			String input = sc.nextLine();
 			boolean B1 = input.matches("[0-9]+");
 			if(B1) {
@@ -42,6 +41,7 @@ public class TraineeAll {
 				switch(i1) {
 				case 1:
 					this.geRandomTn(TA);
+					Company.day++;
 					break;
 				case 2:
 					if(Company.commoney < 10000) {
@@ -49,6 +49,13 @@ public class TraineeAll {
 						break;
 					}
 					this.sPRandomTn(TA);
+					break;
+				case 3:
+					if(Company.commoney < 50000) {
+						System.out.println("돈이 부족하여 연습생을 뽑을 수 없습니다.");
+						break;
+					}
+					this.sSPRandomTn(TA);
 					break;
 				case 0:
 					break random;
@@ -69,7 +76,7 @@ public class TraineeAll {
 		dance= (int)(Math.random()*70)+1;
 		rap = (int)(Math.random()*70)+1;
 		compose = (int)(Math.random()*70)+1;
-		if(vocal + dance + rap + compose >= 300) {
+		if(vocal + dance + rap + compose >= 350) {
 			grade = "SSR";
 		}else if(vocal + dance + rap + compose >= 250) {
 			grade = "SR";
@@ -89,7 +96,7 @@ public class TraineeAll {
 		rap = (int)(Math.random()*50)+30;
 		compose = (int)(Math.random()*50)+30;
 	
-		if(vocal + dance + rap + compose >= 300) {
+		if(vocal + dance + rap + compose >= 350) {
 			grade = "SSR";
 		}else if(vocal + dance + rap + compose >= 250) {
 			grade = "SR";
@@ -99,6 +106,26 @@ public class TraineeAll {
 			grade = "N";
 		}
 		Company.commoney = Company.commoney - 10000;
+		this.scout(TA);
+	}
+	
+	void sSPRandomTn(TraineeAll[] TA) {
+		traineeName = "연습생";
+		vocal = (int)(Math.random()*60)+40;
+		dance= (int)(Math.random()*60)+40;
+		rap = (int)(Math.random()*60)+40;
+		compose = (int)(Math.random()*60)+40;
+	
+		if(vocal + dance + rap + compose >= 350) {
+			grade = "SSR";
+		}else if(vocal + dance + rap + compose >= 250) {
+			grade = "SR";
+		}else if(vocal + dance + rap + compose >= 200) {
+			grade = "R";
+		}else {
+			grade = "N";
+		}
+		Company.commoney = Company.commoney - 50000;
 		this.scout(TA);
 	}
 	
@@ -172,7 +199,7 @@ public class TraineeAll {
 		boolean B1 = input.matches("[0-9]+");
 		if(B1) {
 			int i1 = Integer.parseInt(input);
-			if(TA[i1 - 1].grade == null) {
+			if(i1 > 5 || i1 < 1 || TA[i1 - 1].grade == null) {
 				System.out.println("존재하지 않습니다.");
 			}else {
 				traineeInfo(i1 - 1, TA);
@@ -199,25 +226,31 @@ public class TraineeAll {
 		System.out.println("등급 : " + grade);
 		System.out.println("=============================");
 		System.out.println("1.연습하기  2.휴식하기  0.뒤로가기");
-		int input = Integer.parseInt(sc.nextLine());
-		switch(input) {
-		case 1:
-			Training tr = new Training();
-			tr.training(a, TA);
-			if(TA[a].hp <= 0) {
-				System.out.println(TA[a].traineeName + "(이)가 과로로 쓰러져 게임오버 되었습니다.");
-				System.exit(0);
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int i1 = Integer.parseInt(input);
+			switch(i1) {
+			case 1:
+				Training tr = new Training();
+				tr.training(a, TA);
+				if(TA[a].hp <= 0) {
+					System.out.println(TA[a].traineeName + "(이)가 과로로 쓰러져 게임오버 되었습니다.");
+					System.exit(0);
+				}
+				break;
+			case 2:
+				RestT RT = new RestT();
+				RT.selRest(TA, a);
+				break;
+			case 0:
+				break;
+			default:
+				System.out.println("지원되지 않는 키입니다.");
+				break;
 			}
-			break;
-		case 2:
-			RestT RT = new RestT();
-			RT.selRest(TA, a);
-			break;
-		case 0:
-			break;
-		default:
-			System.out.println("지원되지 않는 키입니다.");
-			break;
+		}else {
+			System.out.println("숫자를 입력해주세요.");
 		}
 	}
 	

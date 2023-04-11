@@ -4,55 +4,69 @@ import java.util.Scanner;
 
 public class Training {
 	Scanner sc = new Scanner(System.in);
-	int input;
+	
 	
 
 	
 	void training(int a, TraineeAll[] TA) {
 		System.out.println("어떤 연습을 시키시겠습니까?");
 		System.out.println("1.보컬연습  2.댄스연습  3.랩 연습  4.작사작곡 연습   0.뒤로가기");
-		input = Integer.parseInt(sc.nextLine());
-		switch(input) {
-		case 1:
-			vocalTraining(a, TA);
-			break;
-		case 2:
-			danceTraining(a, TA);
-			break;
-		case 3:
-			rapTraining(a, TA);
-			break;
-		case 4: 
-			comTraining(a, TA);
-			break;
-		case 0:
-			break;
-		default:
-			System.out.println("지원되지 않는 키입니다.");
-			break;
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int	i1 = Integer.parseInt(input);
+			switch(i1) {
+			case 1:
+				vocalTraining(a, TA);
+				break;
+			case 2:
+				danceTraining(a, TA);
+				break;
+			case 3:
+				rapTraining(a, TA);
+				break;
+			case 4: 
+				comTraining(a, TA);
+				break;
+			case 0:
+				break;
+			default:
+				System.out.println("지원되지 않는 키입니다.");
+				break;
+			}
+		}else {
+			System.out.println("숫자를 입력하세요.");
 		}
 	}
 	
 	void vocalTraining(int a, TraineeAll[] TA) {
 		System.out.println("어떤 방식으로 하시겠습니까?");
 		System.out.println("1.개인연습(보컬능력치 +1, hp -1)  2.트레이너 고용(보컬능력치 +5, 돈 -1000, hp -5)   0.뒤로가기");
-		input = Integer.parseInt(sc.nextLine());
-		switch(input) {
-		case 1:
-			voTr1(a, TA);
-			break;
-		case 2:
-			if(Company.commoney < 1000) {
-				System.out.println("돈이 부족하여 연습을 진행할 수 없습니다.");
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int	i1 = Integer.parseInt(input);
+			switch(i1) {
+			case 1:
+				voTr1(a, TA);
+				Company.day++;
+				break;
+			case 2:
+				if(Company.commoney < 1000) {
+					System.out.println("돈이 부족하여 연습을 진행할 수 없습니다.");
+					break;
+				}
+				voTr2(a, TA);
+				Company.day++;
+				break;
+			case 0:
+				break;
+			default:
+				System.out.println("지원되지 않는 키입니다.");
 				break;
 			}
-			voTr2(a, TA);
-			break;
-		case 0:
-			break;
-		default:
-			System.out.println("지원되지 않는 키입니다.");
-			break;
+		}else {
+			System.out.println("숫자를 입력하세요.");
 		}
 	}
 	
@@ -73,25 +87,32 @@ public class Training {
 	void danceTraining(int a, TraineeAll[] TA) {
 		System.out.println("어떤 방식으로 하시겠습니까?");
 		System.out.println("1.개인연습(댄스능력치 +1, hp -1)  2.트레이너 고용(댄스능력치 +5, 돈 -1000, hp -5)   0.뒤로가기");
-		input = Integer.parseInt(sc.nextLine());
-		switch(input) {
-		case 1:
-			daTr1(a, TA);
-			break;
-		case 2:
-			if(Company.commoney < 1000) {
-				System.out.println("돈이 부족하여 연습을 진행할 수 없습니다.");
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int	i1 = Integer.parseInt(input);
+			switch(i1) {
+			case 1:
+				daTr1(a, TA);
+				Company.day++;
+				break;
+			case 2:
+				if(Company.commoney < 1000) {
+					System.out.println("돈이 부족하여 연습을 진행할 수 없습니다.");
+					break;
+				}
+				daTr2(a, TA);
+				Company.day++;
+				break;
+			case 0:
+				break;
+			default:
+				System.out.println("지원되지 않는 키입니다.");
 				break;
 			}
-			daTr2(a, TA);
-			break;
-		case 0:
-			break;
-		default:
-			System.out.println("지원되지 않는 키입니다.");
-			break;
+		}else {
+			System.out.println("숫자를 입력하세요.");
 		}
-		
 	}
 	
 	void daTr1(int a, TraineeAll[] TA) {
@@ -111,25 +132,32 @@ public class Training {
 	void rapTraining(int a, TraineeAll[] TA) {
 		System.out.println("어떤 방식으로 하시겠습니까?");
 		System.out.println("1.개인연습(랩능력치 +1, hp -1)  2.트레이너 고용(랩능력치 +5, 돈 -1000, hp -5)   0.뒤로가기");
-		input = Integer.parseInt(sc.nextLine());
-		switch(input) {
-		case 1:
-			raTr1(a, TA);
-			break;
-		case 2:
-			if(Company.commoney < 1000) {
-				System.out.println("돈이 부족하여 연습을 진행할 수 없습니다.");
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int	i1 = Integer.parseInt(input);
+			switch(i1) {
+			case 1:
+				raTr1(a, TA);
+				Company.day++;
+				break;
+			case 2:
+				if(Company.commoney < 1000) {
+					System.out.println("돈이 부족하여 연습을 진행할 수 없습니다.");
+					break;
+				}
+				raTr2(a, TA);
+				Company.day++;
+				break;
+			case 0:
+				break;
+			default:
+				System.out.println("지원되지 않는 키입니다.");
 				break;
 			}
-			raTr2(a, TA);
-			break;
-		case 0:
-			break;
-		default:
-			System.out.println("지원되지 않는 키입니다.");
-			break;
+		}else {
+			System.out.println("숫자를 입력하세요.");
 		}
-		
 	}
 	
 	void raTr1(int a, TraineeAll[] TA) {
@@ -150,25 +178,32 @@ public class Training {
 	void comTraining(int a, TraineeAll[] TA) {
 		System.out.println("어떤 방식으로 하시겠습니까?");
 		System.out.println("1.개인연습(작사작곡능력치 +1, hp -1)  2.트레이너 고용(작사작곡능력치 +5, 돈 -1000, hp -5)   0.뒤로가기");
-		input = Integer.parseInt(sc.nextLine());
-		switch(input) {
-		case 1:
-			coTr1(a, TA);
-			break;
-		case 2:
-			if(Company.commoney < 1000) {
-				System.out.println("돈이 부족하여 연습을 진행할 수 없습니다.");
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int	i1 = Integer.parseInt(input);
+			switch(i1) {
+			case 1:
+				coTr1(a, TA);
+				Company.day++;
+				break;
+			case 2:
+				if(Company.commoney < 1000) {
+					System.out.println("돈이 부족하여 연습을 진행할 수 없습니다.");
+					break;
+				}
+				coTr2(a, TA);
+				Company.day++;
+				break;
+			case 0:
+				break;
+			default:
+				System.out.println("지원되지 않는 키입니다.");
 				break;
 			}
-			coTr2(a, TA);
-			break;
-		case 0:
-			break;
-		default:
-			System.out.println("지원되지 않는 키입니다.");
-			break;
+		}else {
+			System.out.println("숫자를 입력하세요.");
 		}
-		
 	}
 	
 	void coTr1(int a, TraineeAll[] TA) {
