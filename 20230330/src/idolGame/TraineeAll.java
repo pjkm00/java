@@ -49,6 +49,7 @@ public class TraineeAll {
 						break;
 					}
 					this.sPRandomTn(TA);
+					Company.day++;
 					break;
 				case 3:
 					if(Company.commoney < 50000) {
@@ -56,6 +57,7 @@ public class TraineeAll {
 						break;
 					}
 					this.sSPRandomTn(TA);
+					Company.day++;
 					break;
 				case 0:
 					break random;

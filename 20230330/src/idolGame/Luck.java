@@ -15,6 +15,11 @@ public class Luck {
 			int i1 = Integer.parseInt(input);
 			switch(i1) {
 			case 1:
+				if(Company.commoney < 5000) {
+					System.out.println("돈이 부족하여 뽑기를 진행할 수 없습니다.");
+					break;
+				}
+				Company.day++;
 				Company.commoney -= 5000;
 				int random = (int)(Math.random()*10)+1;
 				switch(random) {
@@ -51,6 +56,9 @@ public class Luck {
 				}
 				break;
 			case 2:
+				break;
+			default :
+				System.out.println("지원되지 않는 키입니다.");
 				break;
 			}
 		}else {

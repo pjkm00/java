@@ -12,7 +12,7 @@ public class Album {
 	Debut d = new Debut();
 	Scanner sc = new Scanner(System.in);
 	
-	void cAn(Debut d) {
+	void cAn(Member[] mA) {
 		System.out.println("앨범 이름을 정해주세요.");
 		albumName = sc.nextLine();
 		System.out.println("곡을 어떻게 하시겠습니까? 1.자작곡(그룹 능력치에 따라 곡의 등급이 결정됩니다. F ~ S)  2.작곡가 고용(곡 등급 C ~ A, 돈 - 50000)");
@@ -22,12 +22,12 @@ public class Album {
 			int	i1 = Integer.parseInt(input);
 			switch(i1) {
 			case 1:
-				this.selfsong();
+				this.selfsong(mA);
 				break;
 			case 2:
 				if(Company.commoney < 50000) {
 					System.out.println("돈이 부족하여 작곡가를 고용할 수 없습니다. 자동으로 자작곡으로 선택됩니다.");
-					this.selfsong();
+					this.selfsong(mA);
 				}else {
 					this.composer();
 					Company.commoney -= 50000;
@@ -48,12 +48,12 @@ public class Album {
 			int	i2 = Integer.parseInt(input);
 			switch(i2) {
 			case 1:
-				this.selfdance();
+				this.selfdance(mA);
 				break;
 			case 2:
 				if(Company.commoney < 50000) {
 					System.out.println("돈이 부족하여 안무가를 고용할 수 없습니다. 자동으로 창작안무로 선택됩니다.");
-					this.selfdance();
+					this.selfdance(mA);
 				}else {
 					this.dancer();
 					Company.commoney -= 50000;
@@ -74,7 +74,8 @@ public class Album {
 	}
 	
 
-	void selfsong() {
+	void selfsong(Member[] mA) {
+		d.avg(mA);
 		if(Debut.gcomposeAvg > 90) {
 			songgrade = "S";
 		}else if(Debut.gcomposeAvg > 80) {
@@ -101,7 +102,8 @@ public class Album {
 		}
 	}
 	
-	void selfdance() {
+	void selfdance(Member[] mA) {
+		d.avg(mA);
 		if(Debut.gdanceAvg > 90) {
 			dancegrade = "S";
 		}else if(Debut.gdanceAvg > 80) {

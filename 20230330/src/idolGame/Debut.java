@@ -142,7 +142,31 @@ public class Debut {
 	
 	}
 
-	
+	void avg(Member[] mA) {
+		gvocal = 0;
+		gdance = 0;
+		grap = 0;
+		gcompose = 0;
+		for(int i = 0; i < mA.length; i++) {
+			gvocal += mA[i].vocal;
+			gdance += mA[i].dance;
+			grap += mA[i].rap;
+			gcompose += mA[i].compose;
+		}
+		gvocalAvg = gvocal / mA.length;
+		gdanceAvg = gdance / mA.length;
+		grapAvg = grap / mA.length;
+		gcomposeAvg = gcompose / mA.length;
+		if(gvocalAvg + gdanceAvg + grapAvg + gcomposeAvg>= 350) {
+				ggrade = "SSR";
+			}else if(gvocalAvg + gdanceAvg + grapAvg + gcomposeAvg>= 250) {
+				ggrade = "SR";
+			}else if(gvocalAvg + gdanceAvg + grapAvg + gcomposeAvg>= 200) {
+				ggrade = "R";
+			}else {
+				ggrade = "N";
+			}
+	}
 	
 	
 }

@@ -7,7 +7,7 @@ public class TVShow {
 	Scanner sc = new Scanner(System.in);
 	
 	void selShow(Member[] mA) {
-		System.out.println("어떤 프로를 선택하시겠습니까? 1.복면가왕(hp -10)  2.쇼미더머니(hp -10)  3.스맨파/스우파(hp -10)  0.뒤로가기");
+		System.out.println("어떤 프로를 선택하시겠습니까? 1.복면가왕(hp -10)  2.쇼미더머니(hp -10)  3.스맨파/스우파(hp -10)  4.아육대(hp -20)  0.뒤로가기");
 		String input = sc.nextLine();
 		boolean B1 = input.matches("[0-9]+");
 		if(B1) {
@@ -21,6 +21,9 @@ public class TVShow {
 				break;
 			case 3:
 				this.streetfighter(mA);
+				break;
+			case 4:
+				this.idolsports(mA);
 				break;
 			case 0:
 				break;
@@ -255,11 +258,154 @@ public class TVShow {
 	
 	
 	void idolsports(Member[] mA) {
-		System.out.println("어떤 멤버를 출연시키시겠습니까?");
-		
+		System.out.println("어떤 멤버를 출연시키시겠습니까? (번호나 예명 입력)");
+		String input = sc.nextLine();
+		boolean B1 = input.matches("[0-9]+");
+		if(B1) {
+			int i1 = Integer.parseInt(input);
+			if(i1 < 1 || mA.length < i1) {
+				System.out.println("해당하는 멤버가 없습니다.");
+			}else {
+				System.out.println(mA[i1 - 1].stageName + "(이)가 아육대에 참가합니다.");
+				mA[i1 - 1].hp -= 20;
+				int ran = (int)(Math.random()*10)+1;
+				switch(ran) {
+				case 1:
+					System.out.println(mA[i1 - 1].stageName + "(이)가 달리기에서 멋지게 활약하여 금메달을 땄습니다.");
+					System.out.println("팬이 3000명 증가하고 돈을 10000원 벌었습니다.");
+					Debut.gfan += 3000;
+					Company.commoney += 10000;
+					break;
+				case 2:
+					System.out.println(mA[i1 - 1].stageName + "(이)가 양궁에서 멋지게 활약하여 금메달을 땄습니다.");
+					System.out.println("팬이 3000명 증가하고 돈을 10000원 벌었습니다.");
+					Debut.gfan += 3000;
+					Company.commoney += 10000;
+					break;
+				case 3:
+					System.out.println(mA[i1 - 1].stageName + "(이)가 달리기에 나가 은메달을 땄습니다.");
+					System.out.println("팬이 2000명 증가하고 돈을 10000원 벌었습니다.");
+					Debut.gfan += 2000;
+					Company.commoney += 10000;
+					break;
+				case 4:
+					System.out.println(mA[i1 - 1].stageName + "(이)가 양궁에 나가 은메달을 땄습니다.");
+					System.out.println("팬이 2000명 증가하고 돈을 10000원 벌었습니다.");
+					Debut.gfan += 2000;
+					Company.commoney += 10000;
+					break;
+				case 5:
+					System.out.println(mA[i1 - 1].stageName + "(이)가 달리기에 나가 동메달을 땄습니다.");
+					System.out.println("팬이 1000명 증가하고 돈을 10000원 벌었습니다.");
+					Debut.gfan += 1000;
+					Company.commoney += 10000;
+					break;
+				case 6:
+					System.out.println(mA[i1 - 1].stageName + "(이)가 양궁에 나가 동메달을 땄습니다.");
+					System.out.println("팬이 1000명 증가하고 돈을 10000원 벌었습니다.");
+					Debut.gfan += 1000;
+					Company.commoney += 10000;
+					break;
+				case 7:
+					System.out.println(mA[i1 - 1].stageName + "(이)가 풋살에서 멋지게 활약하여 금메달을 땄습니다.");
+					System.out.println("팬이 3000명 증가하고 돈을 10000원 벌었습니다.");
+					Debut.gfan += 3000;
+					Company.commoney += 10000;
+					break;
+				case 8:
+					System.out.println(mA[i1 - 1].stageName + "(이)가 풋살에 나가 은메달을 땄습니다.");
+					System.out.println("팬이 2000명 증가하고 돈을 10000원 벌었습니다.");
+					Debut.gfan += 2000;
+					Company.commoney += 10000;
+					break;
+				case 9:
+					System.out.println(mA[i1 - 1].stageName + "(이)가 풋살에 나가 동메달을 땄습니다.");
+					System.out.println("팬이 1000명 증가하고 돈을 10000원 벌었습니다.");
+					Debut.gfan += 1000;
+					Company.commoney += 10000;
+					break;
+				case 10:
+					System.out.println(mA[i1 - 1].stageName + "(이)가 아육대에 같이 나온 이성 그룹의 멤버와 열애설이 났습니다.");
+					System.out.println("팬이 3000명 감소하고 돈을 10000원 벌었습니다.");
+					Debut.gfan -= 3000;
+					Company.commoney += 10000;
+					break;
+				}
+				
+			}
+		}else {
+			for(int i = 0; i < mA.length; i++) {
+				if(input.equals(mA[i].stageName)) {
+					System.out.println(mA[i].stageName + "(이)가 아육대에 참가합니다.");
+					mA[i].hp -= 20;
+					int ran = (int)(Math.random()*10)+1;
+					switch(ran) {
+					case 1:
+						System.out.println(mA[i].stageName + "(이)가 달리기에서 멋지게 활약하여 금메달을 땄습니다.");
+						System.out.println("팬이 3000명 증가하고 돈을 10000원 벌었습니다.");
+						Debut.gfan += 3000;
+						Company.commoney += 10000;
+						break;
+					case 2:
+						System.out.println(mA[i].stageName + "(이)가 양궁에서 멋지게 활약하여 금메달을 땄습니다.");
+						System.out.println("팬이 3000명 증가하고 돈을 10000원 벌었습니다.");
+						Debut.gfan += 3000;
+						Company.commoney += 10000;
+						break;
+					case 3:
+						System.out.println(mA[i].stageName + "(이)가 달리기에 나가 은메달을 땄습니다.");
+						System.out.println("팬이 2000명 증가하고 돈을 10000원 벌었습니다.");
+						Debut.gfan += 2000;
+						Company.commoney += 10000;
+						break;
+					case 4:
+						System.out.println(mA[i].stageName + "(이)가 양궁에 나가 은메달을 땄습니다.");
+						System.out.println("팬이 2000명 증가하고 돈을 10000원 벌었습니다.");
+						Debut.gfan += 2000;
+						Company.commoney += 10000;
+						break;
+					case 5:
+						System.out.println(mA[i].stageName + "(이)가 달리기에 나가 동메달을 땄습니다.");
+						System.out.println("팬이 1000명 증가하고 돈을 10000원 벌었습니다.");
+						Debut.gfan += 1000;
+						Company.commoney += 10000;
+						break;
+					case 6:
+						System.out.println(mA[i].stageName + "(이)가 양궁에 나가 동메달을 땄습니다.");
+						System.out.println("팬이 1000명 증가하고 돈을 10000원 벌었습니다.");
+						Debut.gfan += 1000;
+						Company.commoney += 10000;
+						break;
+					case 7:
+						System.out.println(mA[i].stageName + "(이)가 풋살에서 멋지게 활약하여 금메달을 땄습니다.");
+						System.out.println("팬이 3000명 증가하고 돈을 10000원 벌었습니다.");
+						Debut.gfan += 3000;
+						Company.commoney += 10000;
+						break;
+					case 8:
+						System.out.println(mA[i].stageName + "(이)가 풋살에 나가 은메달을 땄습니다.");
+						System.out.println("팬이 2000명 증가하고 돈을 10000원 벌었습니다.");
+						Debut.gfan += 2000;
+						Company.commoney += 10000;
+						break;
+					case 9:
+						System.out.println(mA[i].stageName + "(이)가 풋살에 나가 동메달을 땄습니다.");
+						System.out.println("팬이 1000명 증가하고 돈을 10000원 벌었습니다.");
+						Debut.gfan += 1000;
+						Company.commoney += 10000;
+						break;
+					case 10:
+						System.out.println(mA[i].stageName + "(이)가 아육대에 같이 나온 이성 그룹의 멤버와 열애설이 났습니다.");
+						System.out.println("팬이 3000명 감소하고 돈을 10000원 벌었습니다.");
+						Debut.gfan -= 3000;
+						Company.commoney += 10000;
+						break;
+						}
+				}
+			}
+		}
+	
 	}
-	
-	
 	
 	
 	

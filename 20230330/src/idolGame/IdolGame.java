@@ -13,9 +13,10 @@ public class IdolGame {
 		Ending e = new Ending();
 		Scanner sc = new Scanner(System.in);
 		System.out.println("┏━━━━━━━━━━━━━━━━━━━━━┓");
-		System.out.println("                아이돌  키우기              ");
+		System.out.println("┃      아이돌  키우기          ┃   ");
 		System.out.println("┗━━━━━━━━━━━━━━━━━━━━━┛");
-		System.out.println("1년동안 기획사 사장이 되어 아이돌을 키워보세요!");
+		System.out.println("100일동안 기획사 사장이 되어 아이돌을 키워보세요!");
+		System.out.println();
 		System.out.println("회사명을 입력하세요.");
 		String companyName = sc.nextLine();
 		Company cp = new Company(companyName);
@@ -28,14 +29,14 @@ public class IdolGame {
 		
 		
 		while(true) {
-			if(Company.day > 365) {
+			if(Company.day > 100) {
 				e.end2();
 				System.exit(0);
 			}else {
 				System.out.println();
 				System.out.println("│Day " + Company.day + "│");
 				
-				System.out.println("1.회사 상황 확인  2.연습생 뽑기  3.연습생 관리   4.데뷔하기    5.행운뽑기   0.종료 ");
+				System.out.println("1.회사 상황 확인  2.연습생 뽑기  3.연습생 관리   4.데뷔하기   5.행운뽑기    0.종료 ");
 				String input = sc.nextLine();
 				boolean B = input.matches("[0-9]+");
 				if(B) {
@@ -74,7 +75,7 @@ public class IdolGame {
 							case 1:
 								System.out.println("축하합니다. 그룹이 데뷔하였습니다.");
 								while(true) {
-									if(Company.day > 365) {
+									if(Company.day > 100) {
 										e.end(mA);
 										System.exit(0);
 									}else {
@@ -144,18 +145,7 @@ public class IdolGame {
 		}
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-			
+	
 			
 		
 	}

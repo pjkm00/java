@@ -16,7 +16,7 @@ public class Schedule {
 			switch(i1) {
 			case 1:
 				Album a = new Album();
-				a.cAn(d);
+				a.cAn(m);
 				System.out.println("앨범을 발매 하시겠습니까? 예(1) 아니오(2) (작곡가와 안무가 고용에 든 비용은 회수되지 않습니다.)");
 				String input2 = sc.nextLine();
 				boolean B2 = input.matches("[0-9]+");
