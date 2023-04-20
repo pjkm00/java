@@ -22,7 +22,7 @@ public class Finally {
 		FileInputStream fis = null; //파일읽기
 		
 		try {
-			fis = new FileInputStream("C:\\Users\\admin\\Documents\\file.txt");
+			fis = new FileInputStream("C:\\Users\\admin\\Documents\\test.txt");
 			int data = 0;
 			byte[] buf = new byte[fis.available()];
 			
@@ -47,7 +47,7 @@ public class Finally {
 		
 		
 		
-		try(FileOutputStream fos = new FileOutputStream("C:\\Users\\admin\\Documents\\file.txt")) {
+		try(FileOutputStream fos = new FileOutputStream("C:\\Users\\admin\\Documents\\test.txt")) {
 			String str = "아무노래나 틀어";
 			
 			byte[] bytes = str.getBytes();
@@ -60,9 +60,6 @@ public class Finally {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 		
 	}
 
