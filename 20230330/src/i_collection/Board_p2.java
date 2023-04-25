@@ -134,9 +134,9 @@ public class Board_p2 {
 	}
 	
 	void def() {
-		System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+		System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 		System.out.println("번호\t제목\t작성자\t작성일");
-		System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+		System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 		for(int i = 0; i < table.size(); i++) {
 			System.out.print(num.get(i) + "\t");
 			System.out.print(table.get(i).get("제목") + "\t");
@@ -153,9 +153,9 @@ public class Board_p2 {
 		while(true) {
 			b.def();
 			
-			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 			System.out.println("1. 조회\t2. 글작성\t3. 종료");
-			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+			System.out.println("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 			int input = Integer.parseInt(sc.nextLine());
 			switch(input) {
 			case 1:
